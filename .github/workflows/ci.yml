@@ -26,7 +26,26 @@ jobs:
         run: npm install
 
       - name: Run ESLint
-        run: npx eslint src --ext js,jsx
+        run: npm run lint
 
       - name: Run Prettier check
         run: npx prettier --check .
+
+  test:
+    name: Run Jest Tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run Jest Tests
+        run: npm test
