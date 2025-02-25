@@ -52,7 +52,7 @@ jobs:
 
   deploy:
     name: Deploy to Vercel
-    needs: [ lint, test ]  # Деплой запускается только если линтинг и тесты прошли успешно
+    needs: [lint, test] # Деплой запускается только если линтинг и тесты прошли успешно
     runs-on: ubuntu-latest
 
     steps:
