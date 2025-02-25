@@ -67,5 +67,17 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Install Vercel CLI
+        run: npm install -g vercel
+
+      - name: List project files (before build)
+        run: ls -la
+
+      - name: Build project
+        run: npm run build
+
+      - name: List project files (after build)
+        run: ls -la dist
+
       - name: Deploy to Vercel
         run: npx vercel --prod --yes --token ${{ secrets.VERCEL_TOKEN }}
